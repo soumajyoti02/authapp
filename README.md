@@ -35,7 +35,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
    - All the API routes will be created here.
    - To create any API, make a subfolder inside this API folder.
-   - Rename that folder as that desired APi like register, userExist here.
+   - Rename that folder as that desired APi. Like register, userExist in this project.
    - Inside those SubFolder, create a file named route.js.
    - All the Backend code regarding that API should be written in that folder.
    - To fetch an API, just fetch "api/api_name"
