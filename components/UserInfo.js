@@ -5,8 +5,6 @@ import { useSession } from "next-auth/react";
 
 const UserInfo = () => {
     const { data: session } = useSession();
-    const currentTimestamp = Date.now();
-    const formattedTimestamp = new Date(currentTimestamp).toLocaleString();
     return (
         <div className="flex justify-center items-center h-screen bg-gradient-to-r from-violet-200 to-pink-200">
 
@@ -18,7 +16,7 @@ const UserInfo = () => {
                     <h2 class="text-lg font-semibold mb-2">Account Overview:</h2>
                     <p>Username: {session?.user?.name}</p>
                     <p>Email: {session?.user?.email}</p>
-                    <p>Login Time: {formattedTimestamp}</p>
+
                 </div>
                 <button
                     onClick={() => signOut()}
