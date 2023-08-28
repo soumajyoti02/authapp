@@ -18,17 +18,61 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+# NEXT.JS BASIC CONCEPTS
 
-To learn more about Next.js, take a look at the following resources:
+1. page.js is our main Homepage in nextJS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. A folder is made inside the main directory and named as COMPONENTS. Inside that, LoginForm, RegistrationForm, Userinfo & Navbar is created.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. To create Any page routes,
 
-## Deploy on Vercel
+   - create a folder inside APP directory.
+   - Rename that folder as the name of the desired page i.e. about, contact us.
+   - Then make a file called page.js inside every folders.
+   - Here the page routes are dashboard & register.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. A folder is made inside App directory & named as API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   - All the API routes will be created here.
+   - To create any API, make a subfolder inside this API folder.
+   - Rename that folder as that desired APi like register, userExist here.
+   - Inside those SubFolder, create a file named route.js.
+   - All the Backend code regarding that API should be written in that folder.
+   - To fetch an API, just fetch "api/api_name"
+   - Inside that API, receive the request body as req.json();
+   - Send response from that API as: return NextResponse.json({ message: "Your message" }, { status: 201 });
+
+5. Make a folder named lib
+
+   - Inside this folder, Write code for connecting with mongoDB database.
+   - Use this connectmongoDB() function in every other place inside api routes.
+
+6. Make a folder named models
+
+   - Made all Schemas in this folder.
+
+# Code Workflow
+
+1. Inside main page.js, LoginForm component is called. It's our homepage.
+
+2. Inside LoginForm.js component,
+
+- signIn function is called inside handleSubmit. It's came from next-auth.
+- For this, inside API folder, AUTH folder is present.
+  All of these credential things are coming from "authOptions" function defined inside that API.
+- If no error comes, then we just redirect to dashboard page by using useRouter from "next/navigation".
+- If User didn't write all the fields, then a error message will be shown that all fields are necessery.
+- RegisterForm link is added below that loginForm. From that user can go to registerPage to Sign Up.
+
+3. Inside RegisterForm.js component,
+
+- Checking that user exists or not by fetching userExist api and sending user's email as body.If any user is present with that email, That api will return that user.
+- If user != null then we just return from this function displaying that error message that "User Exists"
+- Then we will fetch register API and sending name, email, password as body. This API will save that user into database.
+
+4. If response from this API is ok then user will redirected to login page by useRouter()
+
+5. After login, user will redirected to UserInfo page,
+
+- Here we used useSession from next-auth to get all the details of that user who is currently logged in.
+- All the user information is displayed here.
