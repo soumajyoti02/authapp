@@ -18,7 +18,7 @@ const UserInfo = () => {
                     <h2 class="text-lg font-semibold mb-2">Account Overview:</h2>
                     <p>Username: {session?.user?.name}</p>
                     <p>Email: {session?.user?.email}</p>
-                    <p>Last Login: {formattedTimestamp}</p>
+                    <p>Login Time: {formattedTimestamp}</p>
                 </div>
                 <button
                     onClick={() => signOut()}
