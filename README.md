@@ -38,7 +38,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
    - Rename that folder as that desired APi. Like register, userExist in this project.
    - Inside those SubFolder, create a file named route.js.
    - All the Backend code regarding that API should be written in that folder.
-   - To fetch an API, just fetch "api/api_name"
+   - To fetch an API, just fetch "api/api_FolderName"
    - Inside that API, receive the request body as req.json();
    - Send response from that API as: return NextResponse.json({ message: "Your message" }, { status: 201 });
 
