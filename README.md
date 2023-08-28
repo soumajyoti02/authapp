@@ -57,22 +57,22 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 2. Inside LoginForm.js component,
 
-- signIn function is called inside handleSubmit. It's came from next-auth.
-- For this, inside API folder, AUTH folder is present.
+   - signIn function is called inside handleSubmit. It's came from next-auth.
+   - For this, inside API folder, AUTH folder is present.
   All of these credential things are coming from "authOptions" function defined inside that API.
-- If no error comes, then we just redirect to dashboard page by using useRouter from "next/navigation".
-- If User didn't write all the fields, then a error message will be shown that all fields are necessery.
-- RegisterForm link is added below that loginForm. From that user can go to registerPage to Sign Up.
+   - If no error comes, then we just redirect to dashboard page by using useRouter from "next/navigation".
+   - If User didn't write all the fields, then a error message will be shown that all fields are necessery.
+   - RegisterForm link is added below that loginForm. From that user can go to registerPage to Sign Up.
 
 3. Inside RegisterForm.js component,
 
-- Checking that user exists or not by fetching userExist api and sending user's email as body.If any user is present with that email, That api will return that user.
-- If user != null then we just return from this function displaying that error message that "User Exists"
-- Then we will fetch register API and sending name, email, password as body. This API will save that user into database.
+   - Checking that user exists or not by fetching userExist api and sending user's email as body.If any user is present with that email, That api will return that user.
+   - If user != null then we just return from this function displaying that error message that "User Exists"
+   - Then we will fetch register API and sending name, email, password as body. This API will save that user into database.
 
 4. If response from this API is ok then user will redirected to login page by useRouter()
 
 5. After login, user will redirected to UserInfo page,
 
-- Here we used useSession from next-auth to get all the details of that user who is currently logged in.
-- All the user information is displayed here.
+   - Here we used useSession from next-auth to get all the details of that user who is currently logged in.
+   - All the user information is displayed here.
